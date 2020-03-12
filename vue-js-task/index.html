@@ -1,0 +1,26 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="./css/style.scss" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="./js/script.js"></script>
+<style ></style >
+
+<div id="container">
+
+  <country-head :title="title"></country-head>
+
+  <div id="main">
+
+    <div id="search">
+      <input v-model="searchQuery" placeholder="Search countries">
+    </div>
+
+    <div id="add-country">
+      <input type="text" v-model.trim="newElement" v-on:keyup="checkEnter" placeholder="ctrl + enter">
+      <button v-on:click="addElement">Add</button>
+    </div>
+
+    <table-component :countries="gridData" :columns="gridColumns" :filter-key="searchQuery">
+    </table-component>
+
+  </div>
+</div>
